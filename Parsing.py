@@ -18,37 +18,40 @@ service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
 Sheet = dict()
 
 
-def func_Access_id():
+def func_access_id():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Access_id_lang!A1:D100', majorDimension='ROWS').execute()
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Access_id!A1:B100',
+                                            majorDimension='ROWS').execute()
     Sheet['Access_id'] = {}
     for i in _['values']:
         try:
-            Sheet['Access_id'][int(i[1])] = i[2]
+            Sheet['Access_id'][int(i[0])] = i[1]
         except IndexError:
             pass
     return Sheet
 
 
-def func_KL_R_M():
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='KL_R_M!A1:A100', majorDimension='ROWS').execute()
+def func_kl_r_m():
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='KL_R_M!A1:A100',
+                                            majorDimension='ROWS').execute()
     Sheet['KL_R_M'] = []
     for i in _['values']:
         Sheet['KL_R_M'] += i
     return Sheet
 
 
-def func_Type_distric():
+def func_type_district():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Type distric!A1:Z100', majorDimension='ROWS').execute()
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Type Distric!A1:Z100',
+                                            majorDimension='ROWS').execute()
     for i in _['values']:
         Sheet[i[0]] = i[1:]
     return Sheet
 
-
-def func_Location():
-    global Sheet, Location, Floor, Distric, KL, RM, Project
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Location!A1:Z500', majorDimension='ROWS').execute()
+def func_location():
+    global Sheet, Location, floor, District, KL, RM, Project
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Location!A1:Z500',
+                                            majorDimension='ROWS').execute()
     Sheet['Location'] = {}
     for i in _['values']:
         try:
@@ -56,64 +59,67 @@ def func_Location():
                 Location = i[0]
                 Sheet['Location'][Location] = {}
             if i[1] != '':
-                Floor = i[1]
-                Sheet['Location'][Location][Floor] = {}
+                floor = i[1]
+                Sheet['Location'][Location][floor] = {}
             if i[2] != '':
-                Distric = i[2]
-                Sheet['Location'][Location][Floor][Distric] = [] if i[3] == i[-1] else {}
+                District = i[2]
+                Sheet['Location'][Location][floor][District] = [] if i[3] == i[-1] else {}
             if (i[3] != '') and (i[3] == i[-1]):
                 KL = i[3]
-                Sheet['Location'][Location][Floor][Distric] += [KL]
+                Sheet['Location'][Location][floor][District] += [KL]
             if (i[3] != '') and (i[3] != i[-1]):
                 KL = i[3]
-                Sheet['Location'][Location][Floor][Distric][KL] = [] if i[4] == i[-1] else {}
+                Sheet['Location'][Location][floor][District][KL] = [] if i[4] == i[-1] else {}
             if (i[4] != '') and (i[4] == i[-1]):
                 RM = i[4]
-                Sheet['Location'][Location][Floor][Distric][KL] += [RM]
+                Sheet['Location'][Location][floor][District][KL] += [RM]
             if (i[4] != '') and (i[4] != i[-1]):
                 RM = i[4]
-                Sheet['Location'][Location][Floor][Distric][KL][RM] = [] if i[5] == i[-1] else {}
+                Sheet['Location'][Location][floor][District][KL][RM] = [] if i[5] == i[-1] else {}
             if (i[5] != '') and (i[5] == i[-1]):
                 Project = i[5]
-                Sheet['Location'][Location][Floor][Distric][KL][RM] += [Project]
+                Sheet['Location'][Location][floor][District][KL][RM] += [Project]
         except (IndexError, KeyError):
             pass
     return Sheet
 
 
-def func_Device():
-    global Sheet, Type, Device, Project
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Device!A1:Z500', majorDimension='ROWS').execute()
+def func_device():
+    global Sheet, Type_Device, Device, Project
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Device!A1:Z500',
+                                            majorDimension='ROWS').execute()
     Sheet['Device'] = {}
     for i in _['values']:
         try:
             if i[0] != '':
-                Type = i[0]
-                Sheet['Device'][Type] = [] if i[1] == i[-1] else {}
+                Type_Device = i[0]
+                Sheet['Device'][Type_Device] = [] if i[1] == i[-1] else {}
             if (i[1] != '') and (i[1] == i[-1]):
                 Device = i[1]
-                Sheet['Device'][Type] += [Device]
+                Sheet['Device'][Type_Device] += [Device]
             if (i[1] != '') and (i[1] != i[-1]):
                 Device = i[1]
-                Sheet['Device'][Type][Device] = [] if i[2] == i[-1] else {}
+                Sheet['Device'][Type_Device][Device] = [] if i[2] == i[-1] else {}
             if (i[2] != '') and (i[2] == i[-1]):
                 Project = i[2]
-                Sheet['Device'][Type][Device] += [Project]
+                Sheet['Device'][Type_Device][Device] += [Project]
         except (IndexError, KeyError):
             pass
     return Sheet
 
-def func_Kit():
+def func_kit():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Kit!A1:A100', majorDimension='ROWS').execute()
-    Sheet['Kit'] = []
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Kit!A1:A100',
+                                            majorDimension='ROWS').execute()
+    Sheet['kit'] = []
     for i in _['values']:
-        Sheet['Kit'] += i
+        Sheet['kit'] += i
     return Sheet
 
-def func_Reported_SP():
-    global Sheet, Location, Distric, SP
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Reported SP!A1:Z500', majorDimension='ROWS').execute()
+def func_reported_sp():
+    global Sheet, Location, District, SP
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Reported SP!A1:Z500',
+                                            majorDimension='ROWS').execute()
     Sheet['SP'] = {}
     try:
         for i in _['values']:
@@ -121,64 +127,60 @@ def func_Reported_SP():
                 Location = i[0]
                 Sheet['SP'][Location] = {}
             if i[1] != '':
-                Distric = i[1]
-                Sheet['SP'][Location][Distric] = []
+                District = i[1]
+                Sheet['SP'][Location][District] = []
             if (i[2] != '') and (i[2] == i[-1]):
-                SP = i[2]
-                Sheet['SP'][Location][Distric] += [SP]
+                sp = i[2]
+                Sheet['SP'][Location][District] += [sp]
     except (IndexError, KeyError):
         pass
     return Sheet
 
-def func_Group():
+def func_group():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Group discrepancy!A1:A100', majorDimension='ROWS').execute()
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Group discrepancy!A1:A100',
+                                            majorDimension='ROWS').execute()
     Sheet['Group'] = []
     for i in _['values']:
         Sheet['Group'] += i
     return Sheet
 
-def func_Checklist():
-    global Sheet, District, Group_defect, Request, Time
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Checklist!A1:E300', majorDimension='ROWS').execute()
-    Sheet['Checklist'] = {}
+def func_checklist():
+    global Sheet, District, Group_defect, Request
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='ChecKList!A1:E300',
+                                            majorDimension='ROWS').execute()
+    Sheet['ChecKList'] = {}
     for i in _['values']:
         try:
             if i[0] != '':
                 District = i[0]
-                Sheet['Checkist'][District] = {}
+                Sheet['ChecKList'][District] = {}
             if i[1] != '':
                 Group_defect = i[1]
-                Sheet['Checklist'][District][Group_defect] = {}
+                Sheet['ChecKList'][District][Group_defect] = {}
             if i[2] != '':
                 Request = i[2]
-                Sheet['Checklist'][District][Group_defect][Request] = [] if i[3] == i[-1] else {}
+                Sheet['ChecKList'][District][Group_defect][Request] = {}
             if (i[3] != '') and (i[3] == i[-1]):
-                Time = i[3]
-                Sheet['Checklist'][District][Group_defect][Request] += [Time]
-            if (i[3] != '') and (i[3] != i[-1]):
-                Time = i[3]
-                Sheet['Checklist'][District][Group_defect][Request][Time] = [] if i[4] == i[-1] else {}
-            if (i[4] != '') and (i[4] == i[-1]):
-                Rating = i[4]
-                Sheet['Checklist'][District][Group_defect][Request][Time] += [Rating]
+                Sheet['ChecKList'][District][Group_defect][Request]['time_inspection'] = int(i[3])
+                Sheet['ChecKList'][District][Group_defect][Request]['rating'] = int(i[4])
         except (IndexError, KeyError):
             pass
     return Sheet
 
 
 def beginning():
-    func_Access_id()
-    func_KL_R_M()
-    func_Type_distric()
-    func_Location()
-    func_Device()
-    func_Kit()
-    func_Reported_SP()
-    func_Group()
-    func_Checklist()
+    func_access_id()
+    func_kl_r_m()
+    func_type_district()
+    func_location()
+    func_device()
+    func_kit()
+    func_reported_sp()
+    func_group()
+    func_checklist()
     with open("data_file.json", "w") as write_file:
         json.dump(Sheet, write_file, ensure_ascii=False, skipkeys=False, indent=4)
-    return
+    return Sheet
 
 beginning()
