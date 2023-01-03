@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "buoyant-truck-353519",
+  "private_key_id": "8e7ea92c749c8369a77e657ea1ddd2f542424165",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+pcqxN2z++bRF\nLoJw04kD2iIy6vn97r4rRNOPYLN6o1sRwanU05PJ9AbR1M2Ip5cPA2K8fzcYzDgC\nuIsxnVl6KWX2bLF5Y7aqZ3Jsr7TyHL6SaCmdeSivW+LgcnPRKqAi5GQtQ/QIi67X\nEJXXEArP8JJ6tq6jJGAPtU0PnbAjtE9sPa0CfrDPF8IS/HPKwKgCeRV9XNewX1fX\nUIdqojdzwiPeWiJaNTT8vKI4rqpdaMU5T7HxEch6u04vebj2rEdJWhKCy76OqFL4\nBHD8gqPvR8Rw+zucE/6eF6N0jJ0mrJ0ML/K+TXjwX4a7QeI641TAa+yt8vf4OhcJ\nUGY4j7VzAgMBAAECggEABp12FQQZUheT+7qLaCLO5EVTXnTsy7TXAGVY+eafE6hL\nZqhTnkDhJebDvdAmeZFnGmxBpsy7Oq8LWnzQx53wFt8M3KoU1mNxWSRRwheurZ/1\ntNrMZtxnXv5PNv6BqkZSXCOUnkV3WDyQioHW0SmLVn/AdWWVVa/TbXga/mm4TOTL\nb9xV1f9cXAwzGLngTJAC+eCJXxD9KtBcQXqRXqDgooeK5zt5vlR7z8B9X4b3efVg\nOQZHtESFchd4ymZn687KiXn2xo8+c1mjEmZA9KeQP4ICkwglC94uVgSTW5sZP0Wu\nqPlaQs/nJBEkga6yCIsN668sijC05eGTizMoBMEfcQKBgQDeF4qgqKcE/aszILWK\nZJ+XwVnt2VnJVBmA0hFBT7XO0ORrFqiPCmDVUI3Chrj+JnmXR6uLn5svMeJcU/XU\njtZLseC5GaN1vbo3TcMX11fO6VlKnoOJgdfE9SuNjlQ53Jq5aW44JKRufxNKJeZ4\nEBrjExq+Nz5BIEkVi/7sb/JvBwKBgQDbwT/NuH9e4cwety1amhrPpdIC/DtRen8i\nPXFjPZHBMD4mywc/zTb5pr7YfQKeYEREagq84m/gXTuwIIC0MtgyDH9maSe4bPOw\nfNmf92cSXpz1/WQZOLfP0Kv8qWCYKKR41sQRCnGogQbTHlcrNbFtFz3LBGmdj2Ny\n4TUxvpQ/NQKBgD4ewZS8d7MKrQco//5MtOMCnv/LSrTohBWnLFJjVEwb27gkZ1NT\nKNChrnUZr8bOxjXNQytTollqD5GZnmos5b3YbC36AOGfBuYPJyGVByeF14bqnYop\nukuJ8/utMtvYW6K+3ahwf1m0y5Vy0msEvjCDmHhaBVy8BhUzykMh8OKjAoGAPTwu\nYU7l/zSAQpbchoCms/ILAVXz2ZJ+1rW0YOkJMoIU745nqLmwdgSm7YB4OFWu8Dl0\nYIngju6r8To9YvlAEUI2Rf1LWjLR/P3tTowMJqxCpLFFMVoCrmABbNht2DiLDDkc\nTXtRjJjXpACyXZIKrNFrIKVMIOGR3rMutXvbp3kCgYAccTuMvwLll3ygCwB5qIH3\nt1V1Lsd+iUJ0l/JaW77eWPGufiZ8IeGiFzKRCPtZiuFA4kH6/KUJXT4QwWgoUaAF\nmlisgR2Dd1lvzoNwu6k6YC1BBEX7PpMD8Wng1eZeYkZN8/mMii1bSW+PWIGWqoXU\n1BZGczdBcwHJ8bVx8JrIdA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "account@buoyant-truck-353519.iam.gserviceaccount.com",
+  "client_id": "112226701710589905944",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/account%40buoyant-truck-353519.iam.gserviceaccount.com"
+}

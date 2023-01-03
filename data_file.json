@@ -1,0 +1,979 @@
+{
+    "Access_id": {
+        "323033561": "Стукало Костянтин",
+        "164889095": "Пшоннік Володимир",
+        "795736317": "Романченко Яна",
+        "588051832": "Левченко Анна",
+        "440921073": "Баранов Микита",
+        "1343113492": "Гречин Роман",
+        "207451670": "Верес Тарас",
+        "5596574124": "Сусяк Олег",
+        "348682501": "Анастасія Ксенофонтова",
+        "5364644353": "Малюк Ярослав",
+        "5151276509": "Бобинич Роман",
+        "1082779685": "Будова Людмила",
+        "5233137466": "Рябцева Євгенія",
+        "1307609273": "Савчук Артем"
+    },
+    "KL_R_M": [
+        "р.м. №1",
+        "р.м. №2",
+        "р.м. №3",
+        "р.м. №4",
+        "р.м. №5",
+        "р.м. №6",
+        "р.м. №7",
+        "р.м. №8",
+        "р.м. №9",
+        "р.м. №10",
+        "р.м. №11",
+        "р.м. №12",
+        "р.м. №13",
+        "р.м. №14",
+        "р.м. №15",
+        "р.м. №16",
+        "Без р.м."
+    ],
+    "Non_standart": [
+        "Assembly Rework",
+        "Masterbox",
+        "Pad Printing"
+    ],
+    "Non_place": [
+        "QC SMT/DIP",
+        "DIP",
+        "Service repair",
+        "Debug"
+    ],
+    "Room": [
+        "SMT",
+        "Quality Control SMT",
+        "Selective",
+        "Lacquering",
+        "LongTest"
+    ],
+    "KL_line": [
+        "Test",
+        "Assembly",
+        "QC",
+        "PKG",
+        "Без роб місця"
+    ],
+    "Storage": [
+        "Production Warehouse №1",
+        "Storage Warehouse",
+        "Finished Products Warehouse",
+        "Refuse Warehouse",
+        "Completing PKG №1",
+        "Control Unpacking"
+    ],
+    "Location": {
+        "Гуменне": {
+            "Поверх 1": {
+                "SMT": [
+                    "L.Y.",
+                    "L.Y2.",
+                    "L.M.",
+                    "Pемонт",
+                    "Без р.м."
+                ],
+                "Quality Control SMT": [
+                    "L.Y.",
+                    "L.Y2.",
+                    "L.M.",
+                    "Pемонт",
+                    "Без р.м."
+                ],
+                "QC SMT/DIP": [
+                    "Без роб місця"
+                ],
+                "Selective": [
+                    "L 1",
+                    "L 2",
+                    "L 3",
+                    "L 4",
+                    "L 5",
+                    "L 6",
+                    "Без р.м."
+                ],
+                "DIP": [
+                    "Без роб місця"
+                ],
+                "Service repair": [
+                    "Без роб місця"
+                ],
+                "Lacquering": [
+                    "ЧПУ",
+                    "р.м №1",
+                    "р.м №2",
+                    "р.м №3",
+                    "р.м №4",
+                    "р.м №5",
+                    "р.м №6",
+                    "Без р.м."
+                ],
+                "Test": {
+                    "ТБ CAM": [
+                        "Без роб місця"
+                    ],
+                    "КЛ 2": [
+                        "KL_R_M"
+                    ],
+                    "Без КЛ": [
+                        "Без роб місця"
+                    ]
+                },
+                "Debug": [
+                    "Без роб місця"
+                ],
+                "Assembly Rework": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                },
+                "Assembly": {
+                    "non_project": {
+                        "КЛ 1": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 2": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 3": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 4": [
+                            "KL_R_M"
+                        ],
+                        "Ручне складання": [
+                            "Без роб місця"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "LongTest": {
+                    "non_project": [
+                        "TR 1",
+                        "TR 2",
+                        "TR 3",
+                        "TR 4",
+                        "TR 5",
+                        "TR 6",
+                        "TR 7",
+                        "TR 8",
+                        "TR 9",
+                        "TR 10",
+                        "Калібровочна 1",
+                        "Калібровочна 2",
+                        "Калібровочна 3",
+                        "Калібровочна 4",
+                        "Long",
+                        "Без р.м."
+                    ]
+                },
+                "QC": {
+                    "non_project": {
+                        "КЛ 5": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 6": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 7": [
+                            "KL_R_M"
+                        ],
+                        "Відбраковка з QC": [
+                            "Без роб місця"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "PKG": {
+                    "non_project": {
+                        "КЛ 8": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 9": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 10": [
+                            "KL_R_M"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "Masterbox": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Поверх 2": {
+                "SMT": [
+                    "L.Y.",
+                    "L.Y2.",
+                    "L.M.",
+                    "Pемонт",
+                    "Без р.м."
+                ],
+                "Quality Control SMT": [
+                    "L.Y.",
+                    "L.Y2.",
+                    "L.M.",
+                    "Pемонт",
+                    "Без р.м."
+                ],
+                "QC SMT/DIP": [
+                    "Без роб місця"
+                ],
+                "Selective": [
+                    "L 1",
+                    "L 2",
+                    "L 3",
+                    "L 4",
+                    "L 5",
+                    "L 6",
+                    "Без р.м."
+                ],
+                "DIP": [
+                    "Без роб місця"
+                ],
+                "Test": {
+                    "Продувка": [
+                        "Без роб місця"
+                    ],
+                    "ТБ CAM": [
+                        "Без роб місця"
+                    ],
+                    "КЛ 12": [
+                        "KL_R_M"
+                    ],
+                    "Без КЛ": [
+                        "Без роб місця"
+                    ]
+                },
+                "Debug": [
+                    "Без роб місця"
+                ],
+                "Assembly Rework": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                },
+                "Assembly": {
+                    "non_project": {
+                        "КЛ 11": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 13": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 12": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 14": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 15": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 18": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 19": [
+                            "KL_R_M"
+                        ],
+                        "Ручне складання": [
+                            "Без роб місця"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "LongTest": {
+                    "non_project": [
+                        "TR 1",
+                        "TR 2",
+                        "TR 3",
+                        "TR 4",
+                        "TR 5",
+                        "TR 6",
+                        "TR 7",
+                        "TR 8",
+                        "TR 9",
+                        "TR 10",
+                        "Калібровочна 1",
+                        "Калібровочна 2",
+                        "Калібровочна 3",
+                        "Калібровочна 4",
+                        "Long",
+                        "Без р.м."
+                    ]
+                },
+                "QC": {
+                    "non_project": {
+                        "КЛ 15": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 16": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 19": [
+                            "KL_R_M"
+                        ],
+                        "Відбраковка з QC": [
+                            "Без роб місця"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "PKG": {
+                    "non_project": {
+                        "КЛ 17": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 18": [
+                            "KL_R_M"
+                        ],
+                        "КЛ 19": [
+                            "KL_R_M"
+                        ],
+                        "Без КЛ": [
+                            "Без роб місця"
+                        ]
+                    }
+                },
+                "Masterbox": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                },
+                "Pad Printing": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Completing PKG №1": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Control Unpacking": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Production Warehouse №1": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Storage Warehouse": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Finished Products Warehouse": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            },
+            "Refuse Warehouse": {
+                "non_distric": {
+                    "non_project": [
+                        "Без роб місця"
+                    ]
+                }
+            }
+        },
+        "Скляренко": {},
+        "Турция": {}
+    },
+    "Device": {
+        "Jeweller": {
+            "SpaceControl": [
+                "Ajax, SpaceControl v8_915 Mhz",
+                "Ajax, SC.011.MBR.001v1_868 Mhz",
+                "Ajax, SpaceControl v8_868 Mhz",
+                "Ajax, SpaceControl v8 (9XX)"
+            ],
+            "MotionProtect": [
+                "Ajax, MotionProtect v4_А_868 Mhz",
+                "Ajax, MP.002.MBR.001v0_868 Mhz",
+                "Ajax, MotionProtect v4c_868 Mhz_DIP"
+            ],
+            "MotionProtect Plus": [
+                "Ajax, MotionProtectMW V2",
+                "Ajax, MotionProtectMW V2 (XNA)",
+                "Ajax, MotionProtectMW V2 (XUK)"
+            ],
+            "MotionCam": [
+                "Ajax, CAM.001.PIR.001v7_868 Mhz",
+                "Ajax, CAM.001.MBR.001v7_868 Mhz",
+                "Ajax, CAM.004.PIR.001v0_868 Mhz",
+                "Ajax, CAM.001.PIR.001v7 (9XX)",
+                "Ajax, CAM.004.MBR.001v1_868 Mhz"
+            ],
+            "MotionCam Outdoor": [
+                "Ajax, MCO.001.MBR.001v4",
+                "Ajax, MCO.001.PIR.001v3",
+                "Ajax, MCO.001.MBR.001v8",
+                "Ajax, MCO.001.MBR.001v7",
+                "Ajax, MCO.001.MBR.001v5",
+                "MCO.001.OVB.001v6_DIP",
+                "MCO.001.OVB.001v4_DIP",
+                "Ajax, MCO.001.MBR.001v5 (9XX)"
+            ],
+            "CombiProtect": [
+                "Ajax, CP_001.601.000v3",
+                "Ajax, CombiProtect_M_v4_A_868 Mhz",
+                "Ajax, CP_M_v4c_Motion (9XX)"
+            ],
+            "HomeSiren": [
+                "Ajax, HS.001.MBR.001_v4_868 Mhz",
+                "Ajax, HS.001.MBR.001v5 (9XX)"
+            ],
+            "StreetSiren": [
+                "Ajax, StreetSiren_DG",
+                "Ajax, StreetSiren_Buzzer",
+                "Ajax, SS.002.BT1.001",
+                "Ajax, SS.002.BT2.001",
+                "Ajax, StreetSiren_Battery_v3",
+                "Ajax, StreetSiren_v5_868 Mhz",
+                "Ajax, SS.002.MBR.001v5",
+                "Ajax, StreetSiren_LD1, LD2",
+                "Ajax, StreetSiren_LED1_v3, LED2_v3",
+                "Ajax, SS.002.MBR.001v5 (9XX)",
+                "Ajax, StreetSiren_LD1, LD2_AU"
+            ],
+            "StreetSiren DD": [
+                "Ajax, StreetSiren_DG",
+                "Ajax, StreetSiren_Buzzer",
+                "Ajax, SS.002.BT1.001",
+                "Ajax, SS.002.BT2.001",
+                "Ajax, StreetSiren_Battery_v3",
+                "Ajax, StreetSiren_v5_868 Mhz",
+                "Ajax, SS.002.MBR.001v5",
+                "Ajax, StreetSiren_LD1, LD2",
+                "Ajax, StreetSiren_LED1_v3, LED2_v3",
+                "Ajax, SS.002.MBR.001v5 (9XX)",
+                "Ajax, StreetSiren_LD1, LD2_AU"
+            ],
+            "Keypad": [
+                "Ajax, Keypad V12_868 Mhz"
+            ],
+            "Keypad Plus": [
+                "Ajax, KPP.001.MBR.001v12",
+                "Ajax, KPP.001.ANT.001v9",
+                "Ajax, KPP.001.MBR.001v12 (9XX)"
+            ],
+            "Keypad Combi": [
+                "Ajax, KPS.001.BOT.001v4",
+                "Ajax, KPS.001.BUZ.001v3"
+            ],
+            "Hub": [
+                "Ajax, Hub_V4_holder",
+                "Ajax, HUB.001.PWB.001v1",
+                "Ajax, HUB.001.P12.001v8",
+                "Ajax, HUB-07d_868 Mhz",
+                "Ajax, HUB-07e_868 Mhz",
+                "Ajax, HUB.001.PWB.001v7"
+            ],
+            "Hub 2": [
+                "Ajax, Hub_V4_holder",
+                "Ajax, HB2.001.PWB.001v2",
+                "Ajax, HB2.001.PWB.001v4_DIP",
+                "Ajax, HB2.001.MBR.001v3_868 Mhz",
+                "Ajax, HUB.001.P12.001v8",
+                "Ajax, HUB.001.PWB.001v4",
+                "Ajax, HB2.001.PWB.001v2 (9XX)"
+            ],
+            "Hub Plus": [
+                "Ajax, Hub_V4_holder",
+                "HB2.001.PWB.001v2",
+                "Ajax, HUB.001.601.000v16",
+                "Ajax, HUB.001.P12.001v8"
+            ],
+            "Hub 2 Plus": [
+                "Ajax, Hub_V4_holder",
+                "Ajax, HB2.002.MBR.001v2a",
+                "Ajax, HB2.001.PWB.001v4_DIP",
+                "Ajax, HB2.002.MBR.001v2a_(9XX/AUX)"
+            ],
+            "Hub 2 6V": [
+                "Ajax, Hub_V4_holder"
+            ],
+            "Hub 2 (4G)": [
+                "Ajax, Hub_V4_holder",
+                "HB2.001.PWB.001v2",
+                "Ajax, HB2.003.MBR.001v1",
+                "Ajax, HB2.003.MBR.001v1_(9XX/AUX)"
+            ],
+            "Hub 2 Prosegur": [
+                "Ajax, HB2.002.MBR.001v2a (9XX_AUX_PSG)",
+                "Ajax, HB2.002.MBR.001v2a (8XX_ECG_PSG)"
+            ],
+            "ReX": [
+                "Ajax, HUB.001.PWB.001v1",
+                "Ajax, HUB.001.P12.001v8",
+                "Ajax, ReX_Hub-07_868 Mhz",
+                "Ajax, ReX_Hub-07d_868 Mhz"
+            ],
+            "ReX2": [
+                "Ajax, HB2.001.MBR.001v3 (RX2-8XX)",
+                "Ajax, HB2.001.MBR.001v3 (RX2-9XX)",
+                "Ajax, HB2.001.MBR.001v4 (RX2-8XX)"
+            ],
+            "MotionProtect Outdoor": [
+                "Ajax, MPO.001.MBR.001v5_868 Mhz",
+                "Ajax, MPO.001.MBR.001v8_868 Mhz",
+                "Ajax, MPO.001.PIR.001v5",
+                "Ajax, MPO.001.PIR.001v6"
+            ],
+            "MotionProtect Curtain": [
+                "MPC.001.601.000-01v8",
+                "Ajax, MPC.001.603.000-01v7_868 Mhz"
+            ],
+            "DualCurtain Outdoor": [
+                "Ajax, DCO.001.PIR.001v4",
+                "Ajax, DCO.001.MBR.001v5",
+                "Ajax, DCO.001.MBR.001v5 (9XX)"
+            ],
+            "DoorProtect": [
+                "Ajax, DoorProtect v.8a_868 Mhz",
+                "Ajax, DP.001.MBR.001v9 (9XX)",
+                "Ajax, DP.011.MBR.001v3"
+            ],
+            "DoorProtect Plus": [
+                "Ajax, DoorProtect v.9_915 Mhz",
+                "Ajax, DoorProtect Plus_ v.9_868 Mhz",
+                "Ajax, DoorProtect v.8a_868 Mhz",
+                "Ajax, DPP.001.MBR.001v9 (9XX)"
+            ],
+            "GlassProtect": [
+                "Ajax, GlassProtect v4_868 Mhz",
+                "Ajax, GP.001.MBR.001v10 (9XX)"
+            ],
+            "FireProtect": [
+                "Ajax, FP_.001.MBR.000v7d",
+                "Ajax, Fire_Protect_Top_Board_V2.1",
+                "Ajax, FireProtect_CO_Board_v6"
+            ],
+            "FireProtect Plus": [
+                "Ajax, FireProtect_CO_Board_v6_(Plus)",
+                "FireProtect_CO_Board_v8_(Plus)",
+                "Ajax, Fire_Protect_Top_Board_V2",
+                "Ajax, FPP_.001.MBR.000v7d"
+            ],
+            "LeaksProtect": [
+                "Ajax, LeaksProtect_v8_868 Mhz",
+                "Ajax, LeaksProtect_v8 (9XX)",
+                "Ajax, LeaksProtect 2P_v8"
+            ],
+            "Button": [
+                "Ajax, PBJ.003.MBR.001v5_868 Mhz"
+            ],
+            "DoubleButton": [
+                "Ajax, PBD.001.MBR.001v1",
+                "Ajax, PBD.001.MBR.001v2"
+            ],
+            "Socket": [
+                "Ajax, SOC.001.PLG.001v9a_Plug Board",
+                "Ajax, SOC.001.REL.001v9_Relay Board",
+                "Ajax, SOC.001.SOC.001v9a_Socket Board",
+                "Ajax, SOC All v9a"
+            ],
+            "Socket type G": [
+                "SOG.001.PWR.001v3",
+                "SOG.001.REL.001v3",
+                "SOG ALL"
+            ],
+            "Tag": [
+                "RFID модуль MIFARE DesFire EV1 2K"
+            ],
+            "Pass": [
+                "Ajax, Pass"
+            ],
+            "Transmitter": [
+                "Ajax, TRS.002.601.000v3",
+                "Ajax, TRS.002.601.000v3 (9XX)"
+            ],
+            "MultiTransmitter": [
+                "Ajax, MTR.001.MBR.000v1b",
+                "Ajax, MTR.001.MBR.000v1b (9XX)"
+            ],
+            "Relay": [
+                "Ajax, WSD.001.604.000v11",
+                "Ajax, WSD.001.601.000v11",
+                "Ajax, Relay_Full_(868)"
+            ],
+            "FireProtect 2.0": [
+                "Ajax, EM4_002_MBR_001v4_[FP_8ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FP2_SB_8ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FP_9ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FP2_SB_9ХХ]"
+            ],
+            "FireProtectPlus 2.0": [
+                "Ajax, EM4.002.MBR.001v4_[FPP_8ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FPP2_SB_8ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FPP_9ХХ]",
+                "Ajax, EM4.002.MBR.001v4_[FPP2_SB_9XX]"
+            ],
+            "WallSwitch": [
+                "Ajax, WS.001.PWB.001v8",
+                "Ajax, WS.001.RFM.001v8",
+                "Ajax, WS.001.RFM.001v8 (9XX)"
+            ],
+            "6V PSU for Hub 2": [
+                "Ajax, HB2.001.P6V.001v1"
+            ],
+            "12V PSU for Hub 2": [
+                "Ajax, HB2.001.P12.001v1"
+            ],
+            "24V PSU for Hub": [
+                "Ajax, HB2.001.P24.001v1"
+            ],
+            "ocBridge": [
+                "Ajax, ocBridge v.15_868 Mhz"
+            ],
+            "uartBridge": [
+                "Ajax, uartBridge v.8_868 Mhz"
+            ],
+            "Yavir": [
+                "Ajax, YVH.001.MBR.001_v4_868 Mhz"
+            ],
+            "Yavir Plus": [
+                "Ajax, HUB.001.P12.001v8"
+            ],
+            "vhfBridge": [
+                "Ajax, VHF.001.MBR.001v5"
+            ],
+            "UTB": [
+                "Ajax, UTB.001.601.000v5"
+            ]
+        },
+        "Fibra": {
+            "DoorProtect Fibra": [
+                "Ajax, DPF.001.MBR.001_v4"
+            ],
+            "DoorProtect Plus Fibra": [
+                "Ajax, DPF.001.MBR.001_v4[DPP]"
+            ],
+            "Keypad Fibra": [
+                "Ajax, KPF.001.CON.001v2_868 Mhz"
+            ],
+            "CombiProtect Fibra": [
+                "Ajax, CPF.001.GP.001v2"
+            ],
+            "MotionProtect Fibra": [
+                "Ajax, MPF.001.MBR.001v13",
+                "Ajax, MPF.001.CON.001v13"
+            ],
+            "MotionProtect Plus Fibra": [
+                "Ajax, MPF.001.MBR.001v13[MPP]"
+            ],
+            "GlassProtect Fibra": [
+                "Ajax, GPF.001.MBR.001v15_868 Mhz"
+            ],
+            "HomeSiren Fibra": [
+                "Ajax, HSF.001.MBR.001v3_868 Mhz_DIP",
+                "Ajax, HSF.001.CON.001v3_868 Mhz_DIP"
+            ],
+            "HubHybrid Fibra": [
+                "Ajax, HBF.001.MBR.001v26",
+                "Ajax, HBF.001.MBR.001v26A",
+                "Ajax, HBF.001.MBR.001v26B",
+                "Ajax, HBF.001.MBR.001v28"
+            ]
+        },
+        "Без девайсу": [
+            "Без проекту"
+        ]
+    },
+    "Kit": [
+        "Demo Kit",
+        "DemoKit 2",
+        "HubKit Cam",
+        "HubKit PRO",
+        "Kit 1 Cam DD",
+        "Kit 1 Cam",
+        "Kit 1 Cam Plus DD",
+        "Kit 1 Cam Plus",
+        "Kit 1 DD House",
+        "Kit 1",
+        "Kit 1 Hub2(2G)+MP DD",
+        "Kit 1 Hub2(2G)+MP",
+        "Kit 1 Plus DD",
+        "Kit 1 Plus",
+        "Kit 2",
+        "Kit 2 Cam",
+        "Kit 2 Cam Plus",
+        "Kit 2 Hub2(2G)+MP",
+        "Kit 2 Plus",
+        "Kit 3 Cam DD",
+        "Kit 3 Cam",
+        "Kit 3 Cam Plus DD",
+        "Kit 3 Cam Plus",
+        "Kit 3 DD",
+        "Kit 3",
+        "Kit 3 Hub2(2G)+MP DD",
+        "Kit 3 Hub2(2G)+MP",
+        "Kit 3 Plus DD",
+        "Kit 3 Plus",
+        "Kit 4",
+        "Kit KPP",
+        "Kit Sicor 2 4G",
+        "StarterKit",
+        "StarterKit 2",
+        "StarterKit 2 4G",
+        "StarterKit 2 Sicor",
+        "StarterKit Cam",
+        "StarterKit Cam Plus",
+        "StarterKit Lite",
+        "StarterKit Plus",
+        "StarterKit Sicor"
+    ],
+    "SP": {
+        "Гуменне": {
+            "SMT": [
+                "Степанян С.А.",
+                "Борзунов В.Є.",
+                "Блонський Н.В.",
+                "Чуйко П.В.",
+                "Кирніс А.О.",
+                "Салецький В.",
+                "Гайдак В.",
+                "Слущенко Д.",
+                "Гайтюкевич М.",
+                "Кузнєцов Д.М.",
+                "Відсутній в списку"
+            ],
+            "Quality Control SMT": [
+                "Ткаченко В.В.",
+                "Панфаміров О.Ю.",
+                "Третяк М.В.",
+                "Відсутній в списку"
+            ],
+            "QC SMT/DIP": [
+                "Ткаченко В.В.",
+                "Третяк М.В.",
+                "Відсутній в списку"
+            ],
+            "Selective": [
+                "Ярмоцик Є.С.",
+                "Приходько В.",
+                "Шангін М.",
+                "Дудняк Д.",
+                "Торлін О.",
+                "Фомін І.Є.",
+                "Відсутній в списку"
+            ],
+            "DIP": [
+                "Обозюк С.С.",
+                "Друщенкова В.",
+                "Мазуренко І.О.",
+                "Яремчук С.",
+                "Пилипець С.В.",
+                "Шульга І.О.",
+                "Пилипчинець Н.О.",
+                "Вашека А.В.",
+                "Стадник М.",
+                "Мірошниченко Є.В.",
+                "Дерикіт С.",
+                "Якубовський В.В.",
+                "Ярмоцик Є.С.",
+                "Коваль Р.",
+                "Гудков Є.",
+                "Відсутній в списку"
+            ],
+            "Lacquering": [
+                "Олінковський В.С.",
+                "Яремчук С.",
+                "Пікалов О.",
+                "Шульга І.О.",
+                "Пилипчинець Н.О.",
+                "Ярмоцик Є.С.",
+                "Відсутній в списку"
+            ],
+            "Test": [
+                "Варава С.С.",
+                "Горох Д.О.",
+                "Савінський Д.Ю.",
+                "Харченко А.",
+                "Соловка Ю.І.",
+                "Семенчук М.О.",
+                "Ващенко К.В.",
+                "Кнороз А.О.",
+                "Самінський С.В.",
+                "Коковенко І.В.",
+                "Сербиненко Р.А.",
+                "Кухта В.А.",
+                "Відсутній в списку"
+            ],
+            "Service repair": [
+                "Воронуха Н.В.",
+                "Відсутній в списку"
+            ],
+            "Debug": [
+                "Косей М.І.",
+                "Капічон К.В.",
+                "Хмельниченко С.",
+                "Відсутній в списку"
+            ],
+            "Assembly": [
+                "Євтушенко Д.В.",
+                "Литвин А.Г.",
+                "Радішевська М.О.",
+                "Левченко О.",
+                "Капічон А.Є.",
+                "Криволап М.М.",
+                "Попович А.І.",
+                "Романченко А.М.",
+                "Невмержицький І.В.",
+                "Кийвіт В.А.",
+                "Лещенко М.О.",
+                "Якимець Р.В.",
+                "Садова О.І.",
+                "Семенюк О.О.",
+                "Касинець Т.",
+                "Сушков А.Г.",
+                "Єрмошин Д.Ю.",
+                "Бойчук А.М.",
+                "Покотило М.О",
+                "Коновченко Д.С.",
+                "Тесленко О.П.",
+                "Левченко Д.",
+                "Коковенко І.В.",
+                "Гаврилюк Е.",
+                "Пилипчинець Н.О.",
+                "Відсутній в списку"
+            ],
+            "Assembly Rework": [
+                "Косей М.І.",
+                "Брєус Я.А.",
+                "Скороход А.М.",
+                "Гниденко А.",
+                "Відсутній в списку"
+            ],
+            "LongTest": [
+                "Барченко Р.В.",
+                "Бабенко А.Р.",
+                "Вільчинський В.В.",
+                "Подоба І.В.",
+                "Бровко Є.О.",
+                "Малий О.",
+                "Третяк О.А.",
+                "Портянко В.П.",
+                "Луценко О.А.",
+                "Відсутній в списку"
+            ],
+            "QC": [
+                "Ченцов А.",
+                "Ярмоленко Ю.С.",
+                "Циндрін В.О",
+                "Наумук І.",
+                "Писарєва Д.В.",
+                "Гуртовенко П.Р.",
+                "Гулько Д.",
+                "Кожушна Д.",
+                "Богомедов Д.А.",
+                "Панасюк І.Ю.",
+                "Горбатенко Н.А.",
+                "Портянко В.П.",
+                "Відсутній в списку"
+            ],
+            "PKG": [
+                "Лисенко Л.В.",
+                "Нікитонов О.О.",
+                "Портянко В.П.",
+                "Сплавінська Ю.С.",
+                "Кривошеєнко М.Л.",
+                "Востров А.О.",
+                "Матула О.П.",
+                "Сухомлин О.Г.",
+                "Лукіна О.С.",
+                "Демченко А.",
+                "Бровко Є.О.",
+                "Відсутній в списку"
+            ],
+            "Masterbox": [
+                "Стельмах Т.В.",
+                "Портянко В.П.",
+                "Відсутній в списку"
+            ],
+            "Pad Printing": [
+                "Портянко В.П.",
+                "Ткачук Л.",
+                "Відсутній в списку"
+            ],
+            "Completing PKG №1": [
+                "Осадча А.П.",
+                "Криволап А.М.",
+                "Молдавчук Н.",
+                "Шаповалова О.",
+                "Стельмах Т.В.",
+                "Відсутній в списку"
+            ],
+            "Production Warehouse №1": [
+                "Сухова О.",
+                "Дугінова Є.",
+                "Завадський А.",
+                "Ткаченко С.",
+                "Семко О.",
+                "Крицький В.",
+                "Відсутній в списку"
+            ],
+            "Storage Warehouse": [
+                "Шаман Д.А.",
+                "Дугінова Є.",
+                "Завадський А.",
+                "Відсутній в списку"
+            ],
+            "Finished Products Warehouse": [
+                "Яценко А.Р.",
+                "Дугінова Є.",
+                "Завадський А.",
+                "Відсутній в списку"
+            ],
+            "Refuse Warehouse": [
+                "Сухова О.",
+                "Дугінова Є.",
+                "Завадський А.",
+                "Ткаченко С.",
+                "Семко О.",
+                "Відсутній в списку"
+            ]
+        },
+        "Скляренко": {}
+    },
+    "Group": [
+        "ESD",
+        "Правила зберігання / зонування",
+        "Поведінка / зовнішній вигляд",
+        "Порушення вимог тех.документації",
+        "Порушення правил ОЗБП (HAS)",
+        "ППР / ТО",
+        "Якість продукції"
+    ],
+    "Checklist": {}
+}
