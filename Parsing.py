@@ -1,12 +1,13 @@
 # coding=utf-8
 import json
+import pprint
 
 import httplib2
 import apiclient
 from oauth2client.service_account import ServiceAccountCredentials
 
 CREDENTIALS_FILE = 'creds.json'
-spreadsheet_id = '12gvu_yxTqLfIPNo-T8unIhaz4AoAevydHy4EM1vb0Ig'
+spreadsheet_id = '1ClqEeSnAQhM35_dLuMKJ2Z65cposArk4HwGsf1FAGRw'
 
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     CREDENTIALS_FILE,
@@ -147,27 +148,26 @@ def func_group():
 
 def func_checklist():
     global Sheet, District, Group_defect, Request
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='ChecKList!A1:E300',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Checklist!A1:E300',
                                             majorDimension='ROWS').execute()
-    Sheet['ChecKList'] = {}
+    Sheet['CheckList'] = {}
     for i in _['values']:
         try:
             if i[0] != '':
                 District = i[0]
-                Sheet['ChecKList'][District] = {}
+                Sheet['CheckList'][District] = {}
             if i[1] != '':
                 Group_defect = i[1]
-                Sheet['ChecKList'][District][Group_defect] = {}
+                Sheet['CheckList'][District][Group_defect] = {}
             if i[2] != '':
                 Request = i[2]
-                Sheet['ChecKList'][District][Group_defect][Request] = {}
+                Sheet['CheckList'][District][Group_defect][Request] = {}
             if (i[3] != '') and (i[3] == i[-1]):
-                Sheet['ChecKList'][District][Group_defect][Request]['time_inspection'] = int(i[3])
-                Sheet['ChecKList'][District][Group_defect][Request]['rating'] = int(i[4])
+                Sheet['CheckList'][District][Group_defect][Request]['time_inspection'] = int(i[3])
+                Sheet['CheckList'][District][Group_defect][Request]['rating'] = int(i[4])
         except (IndexError, KeyError):
             pass
     return Sheet
-
 
 def beginning():
     func_access_id()
