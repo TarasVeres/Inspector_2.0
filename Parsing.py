@@ -31,19 +31,9 @@ def func_access_id():
             pass
     return Sheet
 
-
-def func_kl_r_m():
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='KL_R_M!A1:A100',
-                                            majorDimension='ROWS').execute()
-    Sheet['KL_R_M'] = []
-    for i in _['values']:
-        Sheet['KL_R_M'] += i
-    return Sheet
-
-
 def func_type_district():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Type Distric!A1:Z100',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Type District!A1:Z10',
                                             majorDimension='ROWS').execute()
     for i in _['values']:
         Sheet[i[0]] = i[1:]
@@ -51,7 +41,7 @@ def func_type_district():
 
 def func_location():
     global Sheet, Location, floor, District, KL, RM, Project
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Location!A1:Z500',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Location!A1:D400',
                                             majorDimension='ROWS').execute()
     Sheet['Location'] = {}
     for i in _['values']:
@@ -68,18 +58,6 @@ def func_location():
             if (i[3] != '') and (i[3] == i[-1]):
                 KL = i[3]
                 Sheet['Location'][Location][floor][District] += [KL]
-            if (i[3] != '') and (i[3] != i[-1]):
-                KL = i[3]
-                Sheet['Location'][Location][floor][District][KL] = [] if i[4] == i[-1] else {}
-            if (i[4] != '') and (i[4] == i[-1]):
-                RM = i[4]
-                Sheet['Location'][Location][floor][District][KL] += [RM]
-            if (i[4] != '') and (i[4] != i[-1]):
-                RM = i[4]
-                Sheet['Location'][Location][floor][District][KL][RM] = [] if i[5] == i[-1] else {}
-            if (i[5] != '') and (i[5] == i[-1]):
-                Project = i[5]
-                Sheet['Location'][Location][floor][District][KL][RM] += [Project]
         except (IndexError, KeyError):
             pass
     return Sheet
@@ -87,7 +65,7 @@ def func_location():
 
 def func_device():
     global Sheet, Type_Device, Device, Project
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Device!A1:Z500',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Device!A1:C500',
                                             majorDimension='ROWS').execute()
     Sheet['Device'] = {}
     for i in _['values']:
@@ -119,7 +97,7 @@ def func_kit():
 
 def func_reported_sp():
     global Sheet, Location, District, SP
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Reported SP!A1:Z500',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Reported SP!A1:C300',
                                             majorDimension='ROWS').execute()
     Sheet['SP'] = {}
     try:
@@ -137,18 +115,9 @@ def func_reported_sp():
         pass
     return Sheet
 
-def func_group():
-    global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Group discrepancy!A1:A100',
-                                            majorDimension='ROWS').execute()
-    Sheet['Group'] = []
-    for i in _['values']:
-        Sheet['Group'] += i
-    return Sheet
-
 def func_checklist():
     global Sheet, District, Group_defect, Request
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Checklist!A1:E300',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Checklist!A1:E500',
                                             majorDimension='ROWS').execute()
     Sheet['CheckList'] = {}
     for i in _['values']:
@@ -171,13 +140,11 @@ def func_checklist():
 
 def beginning():
     func_access_id()
-    func_kl_r_m()
     func_type_district()
     func_location()
     func_device()
     func_kit()
     func_reported_sp()
-    func_group()
     func_checklist()
     with open("data_file.json", "w") as write_file:
         json.dump(Sheet, write_file, ensure_ascii=False, skipkeys=False, indent=4)

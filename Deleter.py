@@ -7,8 +7,3 @@ def deleter_key(deleter, c_id):
         if key in c_id:
             c_id.pop(key)
     return c_id
-
-async def CheckList(c_id, Sheet, dp, call):
-    for Type_defect in Sheet['CheckList']['SMT'].keys():
-        for Request in Sheet['CheckList']['SMT'][Type_defect]:
-            text_message = f'{Type_defect}\n--------\n{Request}'
