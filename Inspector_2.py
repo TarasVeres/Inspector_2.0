@@ -4,6 +4,7 @@ from aiogram.utils.callback_data import CallbackData
 import pprint
 
 import CheckList
+import reply_message
 import writer
 import Deleter
 import Inline_Keyboard
@@ -11,13 +12,13 @@ import assembler_message
 from CheckList import initial_checklist, iter_checklist
 from Update_Sheet import update_sheet, open_json
 
-Token_work = '5388966053:AAE6rJo_7wbBbGDMG3QntbjN549Ym1lyEgY'
+Token_work = '5977400864:AAFfJjIqmOs5_AMHoz5hGhcoJMpUjy4E9yE'
 Chat_work = '-1001286473377'
 
 Token_test = '5182014508:AAEBytjLM9Gu-3F2o1Qc2QPt5bwdvNWxFEk'
 Chat_test = '-1001626029923'
 
-bot = Bot(Token_test, parse_mode=types.ParseMode.HTML)
+bot = Bot(Token_work, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 Reply = dict()
 buy_callback = CallbackData('buy', 'action', 'amount')
@@ -32,6 +33,22 @@ async def updatesheet(message: types.Message):
             await bot.send_message(message.chat.id, 'Нажаль, у вас немає доступу до користування ботом!😢')
     else:
         pass
+
+@dp.message_handler(commands=['report'])
+async def updatesheet(message: types.Message):
+    global Reply
+    if message.chat.id == message.from_user.id:
+        Sheet = open_json()
+        if str(message.from_user.id) in Sheet['Access_id']:
+            try:
+                Reply[message.chat.id]['report'] = ''
+                await bot.send_message(message.chat.id, text=f'Логи вашої останньої інспекції будуть переслані @TarasVeres99:\n\n'
+                                                             f'{Reply[message.chat.id]}')
+                await bot.send_message(message.chat.id, text=f'Додайте текст опис помилки, також укажіть на якому зараз етапі знаходитесь\n'
+                                                             f'Якщо не бажаєте повідомляти про помилку натисніть /start')
+            except KeyError:
+                pass
+
 
 @dp.message_handler(commands=['start'])  # крок1 Відповідь на команду start видаємо кнопки вибір локації
 async def start(message: types.Message):
@@ -69,6 +86,8 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
                                     text='На якій локації зафіксовано невідповідність?', reply_markup=button)
     elif call_data in Sheet['Location']:  # крок2 обираємо поверх або склад
         await call.answer(f'Локація: {call_data}')
+        Reply[c_id]['inspector'] = Sheet['Access_id'][str(call.message.chat.id)]
+        Reply[c_id]['shift'] = Sheet['id_shift'][str(call.message.chat.id)]
         Reply[c_id]['location'] = call_data
         Deleter.deleter_key('location', Reply[c_id])
         Floor = [i for i in Sheet['Location'][Reply[c_id]['location']]]
@@ -160,7 +179,8 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                     text=call_data, reply_markup=button)
     elif (call_data in Sheet['Device'][Reply[c_id]['type_device']]) or (call_data not in Sheet['SP'][Reply[c_id]['location']][Reply[c_id]['district']]) and \
-        ((Reply[c_id]['district'] not in Sheet['Non_project']) and (call_data in Sheet['Device'][Reply[c_id]['type_device']][Reply[c_id]['device']])):  # крок9 обираємо відповідального
+        ((Reply[c_id]['district'] not in Sheet['Non_project']) and (("Без девайсу" not in Reply[c_id]['device']) and
+                                    (call_data in Sheet['Device'][Reply[c_id]['type_device']][Reply[c_id]['device']]))):  # крок9 обираємо відповідального
         await call.answer(call_data)
         if Reply[c_id]['district'] in Sheet['Non_project']:
             Reply[c_id]['backer'] = Reply[c_id]['type_device']
@@ -199,16 +219,27 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
                                                                                          amount='backer_photo')))
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                     text='Зробіть фото/відео невідповідності', reply_markup=button)
+    elif 've_chat' in call_data:
+        await call.answer()
+        Reply[c_id]['ve_chat'] = True
+        await reply_message.message_ve_chat(Reply[c_id], Chat_work, Sheet)
+        Reply[c_id] = dict()
+        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                    text='Повідомлення успішно переслане в чат та записане в таблицю.')
+    elif 'no_ve_chat' in call_data:
+        await call.answer()
+        Reply[c_id] = dict()
+        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
+                                    text='Залишимо данне повідомлення тут')
+
 
 
 @dp.callback_query_handler(buy_callback.filter(action='checklist'))
 async def callback(call: types.CallbackQuery, callback_data: dict):
-    global Reply, Sheet
+    global Reply, Sheet, Request, Request_defect
     c_id = call.from_user.id
     call_data = callback_data['amount'].replace('[', '').replace(']', '').split(', ')
     button = types.InlineKeyboardMarkup()
-    Request_defect, output_defect_message = CheckList.request_defect(Reply[c_id])
-    Request = Reply[c_id]['checklist']
     if  call_data[0] in "'OK'":
         await call.answer(call_data[0])
         Reply[c_id]['checklist']['log'].append('OK')
@@ -248,12 +279,16 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
         await iter_checklist(Reply[c_id], Sheet, call)
     elif 'checklist_text' in call_data[0]:
         await call.answer()
+        Request_defect, output_defect_message = CheckList.request_defect(Reply[c_id])
+        Request = Reply[c_id]['checklist']
         Request[Request_defect]['text'] = ''
         button.add(types.InlineKeyboardButton('⬅️ Назад', callback_data=buy_callback.new(action='action',
                                                                                          amount='change_photo')))
         await bot.send_message(chat_id=call.message.chat.id, text='Зробіть короткий опис невідповідності:', reply_markup=button)
     elif call_data[0] in Sheet['Location'][Reply[c_id]['location']]:
         await call.answer(f'Локація: {call_data[0]}')
+        Request_defect, output_defect_message = CheckList.request_defect(Reply[c_id])
+        Request = Reply[c_id]['checklist']
         if 'non_district' in Sheet['Location'][Reply[c_id]['location']][call_data[0]]:  # якщо без поверха склад або щось на одному рівні з поверхом
             Request[Request_defect]['floor'] = 'non_district'
             Request[Request_defect]['district'] = call_data[0]
@@ -275,14 +310,19 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
 async def handle_files(message):
     try:
         if message.chat.id == message.from_user.id:
+            Sheet = open_json()
             if str(message.chat.id) in Sheet['Access_id']:
                 m_id = Inline_Keyboard.func_message(message)[0]
                 text = Inline_Keyboard.func_message(message)[1]
-                Request_defect, output_defect_message = CheckList.request_defect(Reply[m_id])
-                if "Відсутній в списку" in Reply[m_id]['sp']:
+                if 'report' in Reply[m_id]:
+                    Reply[m_id]['report'] = text
+                    await bot.send_message(message.chat.id, text='Повідомлення про помилку відправлено.')
+                    await bot.send_message(chat_id=207451670, text=Reply[m_id])
+                elif "Відсутній в списку" in Reply[m_id]['sp']:
                     Reply[m_id]['sp'] = text
                     await initial_checklist(Reply[m_id], Sheet, call=message)
-                elif ('checklist' in Reply[m_id]) and ('photos'in Reply[m_id]['checklist'][Request_defect]):
+                elif ('checklist' in Reply[m_id]) and ('photos'in Reply[m_id]['checklist'][Reply[m_id]['checklist']['Request_message'][len(Reply[m_id]['checklist']['log'])].split('\n')[2]]):
+                    Request_defect, output_defect_message = CheckList.request_defect(Reply[m_id])
                     if Reply[m_id]['checklist'][Request_defect]['text'] == '':
                         Reply[m_id]['checklist'][Request_defect]['text'] = text
                         Reply[m_id]['checklist'][Request_defect]['floor'] = ''
@@ -290,6 +330,7 @@ async def handle_files(message):
                         Reply[m_id]['backer'] = 'checklist_text'
                         button = Inline_Keyboard.inline_c2Checklist(Floor, Reply[m_id]['backer'])
                         await bot.send_message(chat_id=message.chat.id, text='Оберіть дільницю генератор невідповідності:', reply_markup=button)
+
                 # pprint.pprint(Reply)
     except KeyError:
         pass
@@ -297,6 +338,7 @@ async def handle_files(message):
 
 @dp.message_handler(content_types=['video', 'photo'])
 async def start_function(message: types.Message):
+    global Request_defect
     if message.chat.id == message.from_user.id:
         if str(message.chat.id) in Sheet['Access_id']:
             m_id = message.chat.id
@@ -309,14 +351,14 @@ async def start_function(message: types.Message):
                     Reply[m_id]['checklist'][Request_defect]['videos'] = []
                     Reply[m_id]['checklist'][Request_defect]['med'] = []
                     Reply[m_id]['checklist'][Request_defect]['text'] = ''
-                    try:
-                        Reply[m_id]['checklist'][Request_defect]['photos'].append(message.photo[0].file_id)
-                    except (KeyError, IndexError):
-                        pass
-                    try:
-                        Reply[m_id]['checklist'][Request_defect]['videos'].append(message.video.file_id)
-                    except AttributeError:
-                        pass
+                try:
+                    Reply[m_id]['checklist'][Request_defect]['photos'].append(message.photo[0].file_id)
+                except (KeyError, IndexError):
+                    pass
+                try:
+                    Reply[m_id]['checklist'][Request_defect]['videos'].append(message.video.file_id)
+                except AttributeError:
+                    pass
                     if Reply[m_id]['check_photo'] == '':
                         Reply[m_id]['check_photo'] = message.media_group_id
                         button = types.InlineKeyboardMarkup().add(types.InlineKeyboardButton('Змінити фото/відео',

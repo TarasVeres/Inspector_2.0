@@ -21,12 +21,14 @@ Sheet = dict()
 
 def func_access_id():
     global Sheet
-    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Access_id!A1:B100',
+    _ = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range='Access_id!A1:C100',
                                             majorDimension='ROWS').execute()
     Sheet['Access_id'] = {}
+    Sheet['id_shift'] = {}
     for i in _['values']:
         try:
             Sheet['Access_id'][int(i[0])] = i[1]
+            Sheet['id_shift'][int(i[0])] = i[2]
         except IndexError:
             pass
     return Sheet

@@ -34,14 +34,15 @@ async def iter_checklist(c_id, Sheet, call):
         ind_ex = 0
     try:
         Type_defect = Request[ind_ex].split('\n')[0]
-        Request_defect, output_defect_message = Request[ind_ex].split('\n')[2]
+        Request_defect = Request[ind_ex].split('\n')[2]
     except IndexError:
-        await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
-                                    text='Формування повідомлень...')
-        reply_message.message(c_id, call, Sheet)
-    Request_defect_checklist = request_defect(c_id)
+        await reply_message.message(c_id, call, Sheet)
+    Request_defect_checklist = Request[ind_ex - 1].split('\n')[2]
     while True:
-        Request_message = Request[ind_ex]
+        try:
+            Request_message = Request[ind_ex]
+        except IndexError:
+            break
         ind_ex += 1
         Time_inspection = Sheet['CheckList'][c_id['district']][Type_defect][Request_defect]['time_inspection']
         Rating = Sheet['CheckList'][c_id['district']][Type_defect][Request_defect]['rating']
@@ -79,6 +80,6 @@ def button_cheklist(Time_inspection, Rating, inline_backer):
 
 def request_defect(c_id):
     Request = c_id['checklist']['Request_message']
-    Request_defect = Request[len(c_id['checklist']['log']) - 1].split('\n')[2]
-    output_defect_message = Request[len(c_id['checklist']['log']) - 1].split('\n')[0]
+    Request_defect = Request[len(c_id['checklist']['log'])].split('\n')[2]
+    output_defect_message = Request[len(c_id['checklist']['log'])].split('\n')[0]
     return Request_defect, output_defect_message
