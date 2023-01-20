@@ -5,18 +5,11 @@ import pprint
 
 import CheckList
 import reply_message
-import writer
 import Deleter
 import Inline_Keyboard
-import assembler_message
 from CheckList import initial_checklist, iter_checklist
 from Update_Sheet import update_sheet, open_json
-
-Token_work = '5977400864:AAFfJjIqmOs5_AMHoz5hGhcoJMpUjy4E9yE'
-Chat_work = '-1001286473377'
-
-Token_test = '5182014508:AAEBytjLM9Gu-3F2o1Qc2QPt5bwdvNWxFEk'
-Chat_test = '-1001626029923'
+from work_data import *
 
 bot = Bot(Token_work, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
