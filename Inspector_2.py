@@ -11,7 +11,7 @@ from CheckList import initial_checklist, iter_checklist
 from Update_Sheet import update_sheet, open_json
 from work_data import *
 
-bot = Bot(Token_work, parse_mode=types.ParseMode.HTML)
+bot = Bot(Token_test, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 Reply = dict()
 buy_callback = CallbackData('buy', 'action', 'amount')
