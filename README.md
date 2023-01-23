@@ -3,7 +3,7 @@
 ***Inspector bot*** - _Telegram_-bot, which is designed to optimize
 and automate inspection control at production as much as possible.
 
-### На що здатен бот:
+### What the bot is capable of:
 1. The bot parses the data recorded in a Google spreadsheet and processes them.
 Google spreadsheet serves as a database, it is very convenient and easy for
 ordinary users who want to update data in the bot.
