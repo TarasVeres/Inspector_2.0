@@ -38,14 +38,16 @@ def writer_false(c_id, data):
     value[2] = [c_id['shift']]
     value[3] = [c_id['location']]
     value[4] = [c_id['district']]
-    if  ("Без роб місця" not in c_id['room']) and ("Без р.м." not in c_id['room']):
+    if ('room' in c_id) and (("Без роб місця" not in c_id['room']) and ("Без р.м." not in c_id['room'])):
         value[5] = [c_id['room']]
     else:
         value[5] = ['']
     if 'project' in c_id:
         value[6] = [c_id['project']]
     else:
-        if 'Без девайсу'not in c_id['device']:
+        if 'kit' in c_id:
+            value[6] = [c_id['kit']]
+        elif 'Без девайсу'not in c_id['device']:
             value[6] = [c_id['device']]
         else:
             pass

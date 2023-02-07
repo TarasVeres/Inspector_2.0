@@ -51,7 +51,10 @@ async def iter_checklist(c_id, Sheet, call):
             if 'project' in c_id:
                 inline_backer = ['action', c_id['project']]
             else:
-                inline_backer = ['action', c_id['device']]
+                if 'kit' in c_id:
+                    inline_backer = ['action', c_id['kit']]
+                else:
+                    inline_backer = ['action', c_id['device']]
         elif Request_defect_checklist in c_id['checklist']:
             inline_backer = ['checklist', c_id['checklist'][Request_defect_checklist]['floor']]
         else:

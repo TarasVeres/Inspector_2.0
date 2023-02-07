@@ -5,9 +5,10 @@ import matrix
 
 def assembler_good(c_id, Sheet):
     text = f'{time.strftime("%d.%m.%Y", time.localtime())}\n' \
-           f'Проведено інспекцію на локації: {c_id["location"]}, {c_id["floor"]}'
-    if c_id['floor'] not in Sheet['Storage']:
-        text += f'\nДільниця: {c_id["district"]}'
+           f'Проведено інспекцію на локації: {c_id["location"]}'
+    if 'non_district' not in c_id['floor']:
+           text += f', {c_id["floor"]}'
+    text += f'\nДільниця: {c_id["district"]}'
     if ('room' in c_id) and (("Без р.м." not in c_id['room']) and ("Без роб місця" not in c_id['room'])):
         text += f', {c_id["room"]}'
     text += f', зміна - {c_id["shift"]}\n'
@@ -19,9 +20,10 @@ def assembler_good(c_id, Sheet):
 
 def assembler_false(c_id, Sheet):
     text = f'{time.strftime("%d.%m.%Y", time.localtime())}\n' \
-           f'Проведено інспекцію на локації: {c_id["location"]}, {c_id["floor"]}'
-    if c_id['floor'] not in Sheet['Storage']:
-        text += f'\nДільниця: {c_id["district"]}'
+           f'Проведено інспекцію на локації: {c_id["location"]}'
+    if 'non_district' not in c_id['floor']:
+           text += f', {c_id["floor"]}'
+    text += f'\nДільниця: {c_id["district"]}'
     if ('room' in c_id) and (("Без р.м." not in c_id['room']) and ("Без роб місця" not in c_id['room'])):
         text += f', {c_id["room"]}'
     text += f', зміна - {c_id["shift"]}\n'
@@ -36,7 +38,9 @@ def assembler_false_count(c_id, Request_defect):
     if 'project' in c_id:
         text += f'Плата: {c_id["project"]}\n'
     else:
-        if 'Без девайсу' not in c_id['device']:
+        if 'kit' in c_id:
+            text += f'Kit: {c_id["kit"]}\n'
+        elif 'Без девайсу' not in c_id['device']:
             text += f'Девайс: {c_id["device"]}\n'
     text += f'Група невідповідності: {Request_defect["output_defect_message"]}\n'\
     f'Генератор невідповідності: {Request_defect["district"]}\n'\

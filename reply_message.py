@@ -3,13 +3,9 @@ from aiogram import types
 
 import writer
 
-
 def import_bot():
     from Inspector_2 import bot, buy_callback
     return bot, buy_callback
-
-
-
 
 async def message(c_id, call, Sheet):
     bot, buy_callback = import_bot()
