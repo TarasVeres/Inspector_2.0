@@ -3,8 +3,8 @@ def count_false(c_id):
     return count_defect
 
 def count_result(c_id):
-    count = len(c_id['checklist']['log'])
-    count_ok = c_id['checklist']['log'].count('OK')
+    count = c_id['checklist']['Rating_all']
+    count_ok = c_id['checklist']['Rating']
     result = int(count_ok / count * 100)
     return result
 

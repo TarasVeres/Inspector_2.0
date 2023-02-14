@@ -264,6 +264,7 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
         Reply[c_id]['checklist']['log'].append('OK')
         Reply[c_id]['checklist']['Time_inspection'] += call_data[1]
         Reply[c_id]['checklist']['Rating'] += call_data[2]
+        Reply[c_id]['checklist']['Rating_all'] += call_data[2]
         Deleter.deleter_backer_checklist(Reply[c_id])
         await iter_checklist(Reply[c_id], Sheet, call)
     elif call_data[0] in "'NOK'":
@@ -271,6 +272,7 @@ async def callback(call: types.CallbackQuery, callback_data: dict):
         Reply[c_id]['check_photo'] = ''
         Reply[c_id]['checklist']['log'].append('NOK')
         Reply[c_id]['checklist']['Time_inspection'] += call_data[1]
+        Reply[c_id]['checklist']['Rating_all'] += call_data[2]
         Deleter.deleter_backer_checklist(Reply[c_id])
         button.add(types.InlineKeyboardButton('⬅️ Назад', callback_data=buy_callback.new(action='checklist', amount='backer_photo')))
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
