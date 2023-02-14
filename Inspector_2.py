@@ -339,7 +339,7 @@ async def handle_files(message):
                 elif "Відсутній в списку" in Reply[m_id]['sp']:
                     Reply[m_id]['sp'] = text
                     await initial_checklist(Reply[m_id], Sheet, call=message)
-                elif ('checklist' in Reply[m_id]) and ('photos'in Reply[m_id]['checklist'][Reply[m_id]['checklist']['Request_message'][len(Reply[m_id]['checklist']['log'])].split('\n')[2]]):
+                elif ('checklist' in Reply[m_id]) and ('photos'in Reply[m_id]['checklist'][Reply[m_id]['checklist']['Request_message'][len(Reply[m_id]['checklist']['log'])-1].split('\n')[2]]):
                     Request_defect, output_defect_message = request_defect(Reply[m_id])
                     if Reply[m_id]['checklist'][Request_defect]['text'] == '':
                         Reply[m_id]['checklist'][Request_defect]['text'] = text

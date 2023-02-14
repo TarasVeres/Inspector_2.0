@@ -83,6 +83,6 @@ def button_cheklist(Time_inspection, Rating, inline_backer):
 
 def request_defect(c_id):
     Request = c_id['checklist']['Request_message']
-    Request_defect = Request[len(c_id['checklist']['log'])].split('\n')[2]
-    output_defect_message = Request[len(c_id['checklist']['log'])].split('\n')[0]
+    Request_defect = Request[len(c_id['checklist']['log'])-1].split('\n')[2]
+    output_defect_message = Request[len(c_id['checklist']['log'])-1].split('\n')[0]
     return Request_defect, output_defect_message
