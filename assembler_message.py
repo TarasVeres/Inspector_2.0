@@ -1,9 +1,11 @@
+# файл збирання кінцевого повідомлення, як він буде виглядати в телеграмі
+
 import time
 
 import matrix
 
 
-def assembler_good(c_id, Sheet):
+def assembler_good(c_id): # головне повідомлення якщо інспекція була без невідповідностей
     text = f'{time.strftime("%d.%m.%Y", time.localtime())}\n' \
            f'Проведено інспекцію на локації: {c_id["location"]}'
     if 'non_district' not in c_id['floor']:
@@ -18,7 +20,7 @@ def assembler_good(c_id, Sheet):
             f'Ви 🔥!'
     return text
 
-def assembler_false(c_id, Sheet):
+def assembler_false(c_id): # головне повідомлення якщо інспекція була з невідповідностями
     text = f'{time.strftime("%d.%m.%Y", time.localtime())}\n' \
            f'Проведено інспекцію на локації: {c_id["location"]}'
     if 'non_district' not in c_id['floor']:
@@ -33,7 +35,7 @@ def assembler_false(c_id, Sheet):
             f'Ви можете краще!'
     return text
 
-def assembler_false_count(c_id, Request_defect):
+def assembler_false_count(c_id, Request_defect): # формування повідомлень з невідповідностями
     text = f'{time.strftime("%d.%m.%Y", time.localtime())}\n'
     if 'project' in c_id:
         text += f'Плата: {c_id["project"]}\n'
@@ -44,6 +46,6 @@ def assembler_false_count(c_id, Request_defect):
             text += f'Девайс: {c_id["device"]}\n'
     text += f'Група невідповідності: {Request_defect["output_defect_message"]}\n'\
     f'Генератор невідповідності: {Request_defect["district"]}\n'\
-    f'Опис невідповідності: {Request_defect["text"]}'
+    f'Опис невідповідності: {Request_defect["text"]}\n'\
     f'Зафіксував(ла): {c_id["inspector"]}'
     return text

@@ -1,3 +1,4 @@
+# файл роботи з чеклистом
 from aiogram import types
 from aiogram.utils.callback_data import CallbackData
 
@@ -12,21 +13,22 @@ buy_callback = CallbackData('buy', 'action', 'amount')
 # action - параметр сортування колбеків
 # amount - данні які передаються з колбеком
 
-async def initial_checklist(c_id, Sheet, call):
+async def initial_checklist(c_id, Sheet, call): # ініціювання чеклисту де ми відбразу забираємо всі питання з чеклиста по необхідній дільниці
     c_id['checklist'] = {}
     c_id['checklist']['Request_message'] = []
     c_id['checklist']['Time_inspection'] = []
+    c_id['checklist']['Rating_all'] = []
     c_id['checklist']['Rating'] = []
     c_id['checklist']['log'] = []
     for Type_defect in Sheet['CheckList'][c_id['district']].keys():
         for Request in Sheet['CheckList'][c_id['district']][Type_defect].keys():
             f_str = f'{Type_defect}\n-----------\n{Request}'
             c_id['checklist']['Request_message'].append(f_str)
-    await iter_checklist(c_id, Sheet, call)
+    await iter_checklist(c_id, Sheet, call) # після забору питань викликаємо першу ітерацію(перше питання)
 
-async def iter_checklist(c_id, Sheet, call):
+async def iter_checklist(c_id, Sheet, call): # тут описано саме логіку отримання необхідного питання по чеклисту (наступного чи попереднього)
     global Type_defect, Request_defect
-    bot = import_bot()
+    bot = import_bot() # обіх перехрестного імпорту
     Request = c_id['checklist']['Request_message']
     if 'index_count' in c_id['checklist']:
         ind_ex = c_id['checklist']['index_count']
@@ -36,7 +38,7 @@ async def iter_checklist(c_id, Sheet, call):
         Type_defect = Request[ind_ex].split('\n')[0]
         Request_defect = Request[ind_ex].split('\n')[2]
     except IndexError:
-        await reply_message.message(c_id, call, Sheet)
+        await reply_message.message(c_id, call)
     Request_defect_checklist = Request[ind_ex - 1].split('\n')[2]
     while True:
         try:
@@ -67,7 +69,7 @@ async def iter_checklist(c_id, Sheet, call):
             await bot.send_message(chat_id=call.chat.id, text=Request_message, reply_markup=button)
         break
 
-def button_cheklist(Time_inspection, Rating, inline_backer):
+def button_cheklist(Time_inspection, Rating, inline_backer): # формування кнопок по чеклисту
     button = types.InlineKeyboardMarkup(row_width=2)
     button.add(
         types.InlineKeyboardButton('OK', callback_data=buy_callback.new(action='checklist',
@@ -81,7 +83,7 @@ def button_cheklist(Time_inspection, Rating, inline_backer):
     )
     return button
 
-def request_defect(c_id):
+def request_defect(c_id):  # видача необхідного дефекта та класу дефекта
     Request = c_id['checklist']['Request_message']
     Request_defect = Request[len(c_id['checklist']['log'])-1].split('\n')[2]
     output_defect_message = Request[len(c_id['checklist']['log'])-1].split('\n')[0]

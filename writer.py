@@ -91,3 +91,22 @@ def writer_result(c_id):
             ]
         }
     ).execute()
+
+def writer_shift(c_id, shift, Sheet):
+    value = [[''] for _ in range(4)]
+    c_id = str(c_id)
+    value[0] = [Sheet['access_id'][c_id][0]]
+    value[1] = [c_id]
+    value[2] = [Sheet['access_id'][c_id][1]]
+    value[3] = [shift]
+    values = service.spreadsheets().values().batchUpdate(
+        spreadsheetId=spreadsheet_id,
+        body={
+            "valueInputOption": "USER_ENTERED",
+            "data": [
+                {"range": f"Access_id!A{Sheet['access_id'][c_id][0]}:E1000",
+                 "majorDimension": "COLUMNS",
+                 "values": value}
+            ]
+        }
+    ).execute()

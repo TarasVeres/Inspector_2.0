@@ -7,16 +7,16 @@ def import_bot():
     from Inspector_2 import bot, buy_callback
     return bot, buy_callback
 
-async def message(c_id, call, Sheet):
+async def message(c_id, call):
     bot, buy_callback = import_bot()
     if 'NOK' not in c_id['checklist']['log']:
-        text = assembler_message.assembler_good(c_id, Sheet)
+        text = assembler_message.assembler_good(c_id)
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                     text=text)
         await reply_button_ve_chat(buy_callback, bot, call)
     else:
-        text = assembler_message.assembler_false(c_id, Sheet)
-        del_data_log = ['Time_inspection', 'Rating', 'log', 'Request_message', 'index_count']
+        text = assembler_message.assembler_false(c_id)
+        del_data_log = ['Time_inspection', 'Rating', 'Rating_all', 'log', 'Request_message', 'index_count']
         data_log = [i for i in c_id['checklist'] if i not in del_data_log]
         await bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=text)
         for l in data_log:
@@ -40,13 +40,13 @@ async def message(c_id, call, Sheet):
             await bot.send_media_group(call.message.chat.id, media=data['med'])
         await reply_button_ve_chat(buy_callback, bot, call)
 
-async def message_ve_chat(c_id, call, Sheet):
+async def message_ve_chat(c_id, call):
     bot, buy_callback = import_bot()
     if 'NOK' not in c_id['checklist']['log']:
-        text = assembler_message.assembler_good(c_id, Sheet)
+        text = assembler_message.assembler_good(c_id)
         await bot.send_message(chat_id=call, text=text)
     else:
-        text = assembler_message.assembler_false(c_id, Sheet)
+        text = assembler_message.assembler_false(c_id)
         del_data_log = ['Time_inspection', 'Rating', 'log', 'Request_message', 'index_count']
         data_log = [i for i in c_id['checklist'] if i not in del_data_log]
         await bot.send_message(chat_id=call, text=text)
